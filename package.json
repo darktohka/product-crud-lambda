@@ -1,0 +1,20 @@
+{
+  "name": "product-crud-lambda",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.149",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.788.0",
+    "@aws-sdk/lib-dynamodb": "^3.789.0",
+    "valibot": "^1.0.0"
+  }
+}
