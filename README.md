@@ -12,12 +12,13 @@ When creating a new route module, you must include the route in the list of all 
 
 1. Create a new DynamoDB table called `product-table`. The partition key name is `id`. If you want a different name, edit `src/db.ts`.
 2. Create a new AWS Lambda in the AWS Console. Give it access to DynamoDB when creating: create a new role and search for DynamoDB.
-3. Run `make build` to build the `function.zip` file. This is a ZIP file containing `node_modules` and our application code.
-4. Upload the `function.zip` file to the AWS Lambda.
-5. Create a new API Gateway.
-6. Create the CRUD routes in the API Gateway.
-7. Attach the AWS lambda to the CRUD Routes that were created.
-8. Use the API Gateway `Invoke URL` to test the products. Check the `Testing Commands` section!
+3. Run `npm install` to install dependencies.
+4. Run `make build` to build the `function.zip` file. This is a ZIP file containing `node_modules` and our application code.
+5. Upload the `function.zip` file to the AWS Lambda.
+6. Create a new API Gateway.
+7. Create the CRUD routes in the API Gateway.
+8. Attach the AWS lambda to the CRUD Routes that were created.
+9. Use the API Gateway `Invoke URL` to test the products. Check the `Testing Commands` section!
 
 ## Troubleshooting
 
