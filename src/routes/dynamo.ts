@@ -5,10 +5,7 @@ import {
   UpdateCommand,
   DeleteCommand,
 } from "@aws-sdk/lib-dynamodb";
-import {
-  APIGatewayProxyEventV2,
-  APIGatewayProxyStructuredResultV2,
-} from "aws-lambda";
+import { APIGatewayProxyEventV2 } from "aws-lambda";
 import { docClient } from "../db";
 import {
   CreateProductDTO,
