@@ -10,12 +10,14 @@ When creating a new route module, you must include the route in the list of all 
 
 ## Steps
 
-1. Create a new AWS Lambda in the AWS Console. Give it access to DynamoDB when creating: create a new role and search for DynamoDB.
-2. Run `make build` to build the `function.zip` file. This is a ZIP file containing `node_modules` and our application code.
-3. Upload the `function.zip` file to the AWS Lambda.
-4. Create a new API Gateway.
-5. Create the CRUD routes in the API Gateway.
-6. Attach the AWS lambda to the CRUD Routes that were created.
+1. Create a new DynamoDB table called `product-table`. The partition key name is `id`. If you want a different name, edit `src/db.ts`.
+2. Create a new AWS Lambda in the AWS Console. Give it access to DynamoDB when creating: create a new role and search for DynamoDB.
+3. Run `make build` to build the `function.zip` file. This is a ZIP file containing `node_modules` and our application code.
+4. Upload the `function.zip` file to the AWS Lambda.
+5. Create a new API Gateway.
+6. Create the CRUD routes in the API Gateway.
+7. Attach the AWS lambda to the CRUD Routes that were created.
+8. Use the API Gateway `Invoke URL` to test the products. Check the `Testing Commands` section!
 
 ## Troubleshooting
 
@@ -42,3 +44,11 @@ General:
 - **`src/db.ts`**: Contains DynamoDB setup.
 - **`src/types.ts`**: Contains types for products.
 - **`src/utils.ts`**: Contains utilities to help build HTTP responses.
+
+## Testing Commands
+
+- `make build`
+- `curl -X GET https://r5h2s64j2l.execute-api.eu-west-2.amazonaws.com/products`
+- `curl -X POST https://r5h2s64j2l.execute-api.eu-west-2.amazonaws.com/products --json '{"name":"Product","description":"Cool product!","stock":100}'`
+- `curl -X PUT https://r5h2s64j2l.execute-api.eu-west-2.amazonaws.com/products/6b455b2d-26d8-41e5-8d24-8fa5f9d1fca1 --json '{"name":"New Product Name","description":"New product description!","stock":1000}'`
+- `curl -X DELETE https://r5h2s64j2l.execute-api.eu-west-2.amazonaws.com/products/6b455b2d-26d8-41e5-8d24-8fa5f9d1fca1`

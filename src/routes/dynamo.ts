@@ -6,7 +6,7 @@ import {
   DeleteCommand,
 } from "@aws-sdk/lib-dynamodb";
 import { APIGatewayProxyEventV2 } from "aws-lambda";
-import { docClient } from "../db";
+import { docClient, TABLE_NAME } from "../db";
 import {
   CreateProductDTO,
   CreateProductSchema,
@@ -15,8 +15,6 @@ import {
 import * as v from "valibot";
 import { res } from "../utils";
 import { Route } from ".";
-
-const TABLE_NAME = "dd-product-table-1";
 
 // Old: APIGatewayProxyEvent, APIGatewayProxyResult
 export const get_all: Route = async (_event: APIGatewayProxyEventV2) => {
